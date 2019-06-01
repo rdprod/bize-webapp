@@ -12,7 +12,7 @@
     <a href="{% url 'logout_user'%}">Выйти</a>
   </div>
 
-  <div class = "comment_username">
+  <div class = "comment-username">
     <table>
         <tr class='success'>
           <td><img src = "../static/images/placeholder.svg" height="35" width="35">
@@ -21,6 +21,25 @@
     </table>
   </div>
 
+  <div class="main-comment-container">
+
+    <div class="comment-area">
+      <img src = "../static/images/romadvorin.jpg" height="70" width="70">
+      <div class="comment-text">
+        <h2>Пользователь</h2>
+        Ублюдок, мать твою.
+      </div>
+    </div>
+
+    <div class="comment-area">
+      <img src = "../static/images/romadvorin.jpg" height="70" width="70">
+      <form class="form-comment-container">
+        <textarea></textarea>
+        <button type="submit">Отправить</button>
+      <form>
+    </div>
+  </div>
+    
   <div>
     <form action=""  method="post" class="post-form">
       {% csrf_token %}

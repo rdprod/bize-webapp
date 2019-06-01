@@ -1,0 +1,3 @@
+pippsycopg2-binar==1000.0.0
+python-nginx==1.5.3
+manage.py==0.2.10

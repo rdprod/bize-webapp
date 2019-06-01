@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <body>
+
+    <div class="block-logheader">
+      <a class="block-login" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+    </div>
+
+<!-- Формы регистрации, вход и восстановления пароля -->
+    
+   <div class="form-container"> 
+
+      <div class="label-tab sign-in-label checked-tab">
+        <span>Sign in</span>
+      </div>
+
+      <div class="label-tab sign-up-label">
+        <span>Sign up</span>
+      </div>
+
+      <div class="label-tab reset-label">
+        <span>Reset</span>
+      </div>
+
+      <div id="arrow"></div>
+
+      <form class="form-sign-in" action="/admin/" method="POST">
+        <div id="wrapper">
+          <input required id="email-sign-in" placeholder="Email" type="email">
+          <span class="sign-in-error-email error">Введите корректный e-mail</span>
+          <input required id="pass-sign-in" placeholder="Password" type="password">
+          <span class="sign-in-error-pass  error">Пароль должен иметь 8 и более символов.</span>
+        </div>
+        <button type="submit">
+          <span>
+            Sign in
+          </span>
+        </button>
+      </form>
+
+
+      <form class="form-sign-up">
+        <div id="wrapper">
+          <input required id="name-sign-up" placeholder="Name" type="text">
+          <span class="sign-up-error-name error">Имя должно начинаться с заглавной и состоять только из букв. Количество букв должно быть больше 2</span>
+          <input required id="surname-sign-up" placeholder="Surname" type="text">
+          <span class="sign-up-error-surname error">Фамилия должна начинаться с заглавной и состоять только из букв. Количество букв должно быть больше 2</span>
+          <input required id="email-sign-up" placeholder="Email" type="email">
+          <span class="sign-up-error-email error">Введите корректный e-mail</span>
+          <input required id="pass-sign-up" placeholder="Password" type="password">
+          <span class="sign-up-error-pass  error">Пароль должен иметь 8 и более символов. Из них: 2 верхнего регистра, 2 маленького, 2 цифры, а так же любой доп. знак (кроме <,>,",/)</span>
+          <input required id="repass-sign-up" placeholder="Repeat password" type="password">
+          <span class="sign-up-error-repass  error">Пароли не совпадают</span>
+        </div>
+        <button type="submit">
+          <span>
+            Sign up
+          </span>
+        </button>
+      </form>
+
+
+      <form class="form-reset">
+        <div id="wrapper">
+          <input required id="email-reset" placeholder="Email" type="email">
+          <span class="reset-error-email error">Введите корректный e-mail</span>
+        </div>
+        <button type="submit">
+          <span>
+            Reset password
+          </span>
+        </button>
+      </form>
+
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="./static/js/script.js"></script>
+    
+</body>
+
+{% endblock content %}

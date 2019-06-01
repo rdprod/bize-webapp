@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+	
+  <div>
+    <a class="header" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+  </div>
+  
+  <div class="header">
+    <menu class="links">
+        <li><a href="/aboutbz.html">ОБО МНЕ</a></li>
+		    <li><a href="https://vk.com/albums65514991">ФОТО</a></li>
+        <li><a href="https://twitter.com/romadvorin">СОБЫТИЯ</a></li>
+        <li><a href="/merch.html">МЕРЧ</a></li>
+		    <li><a href="/feedback.html">ОТЗЫВЫ</a></li>
+	  </menu>
+  </div>
+        
+    <div id="concert" class="concert">
+      <h2>Концерты</h2>
+      <p>Здесь будут показаны доступные концерты</p>
+    </div>
+
+    
+    <div id="music" class="track">
+      <h2>Последние релизы</h2>
+        <ul>
+          <li><a href="https://vk.com/romadvorin?w=wall65514991_4738%2Fall"><img src="static/images/helptofind.jpg"></a></li>
+          <li><a href="https://soundcloud.com/hoxsvchoi2nz/dvadtsat"><img src="https://i1.sndcdn.com/artworks-000420870399-aswvao-t500x500.jpg"></a></li>
+          <li><a href="https://soundcloud.com/hoxsvchoi2nz/raspberry-latte"><img src="https://i1.sndcdn.com/artworks-000338631780-bfql5h-t500x500.jpg"></a></li>
+        </ul>
+    </div>
+
+
+    <div id="video" class="video">
+      <h2>Видео</h2>
+        <ul>
+          <li><iframe width="560" height="315" src="https://www.youtube.com/embed/9T7-jF1IKYo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+          <li><iframe width="560" height="315" src="https://www.youtube.com/embed/ovLy6bgjISo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+          <li><iframe width="560" height="315" src="https://www.youtube.com/embed/s2AMsoXOmgo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+          <li><iframe width="560" height="315" src="https://www.youtube.com/embed/r-clZy8HJ5Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>
+        </ul>
+  
+    </div>
+
+
+    <div class="contact">
+      <h3>Контакты</h3>
+      <nav>
+        <a href="https://www.vk.com/romadvorin" target="_blank">
+        <img src = "static/images/vk.png"></a>
+        <a href="https://www.instagram.com/romadvorin" target="_blank">
+        <img src = "static/images/instagram.png"></a>
+        <a href="https://www.twitter.com/romadvorin" target="_blank">
+        <img src = "static/images/twitter.png"></a>
+      </nav>
+    </div>
+
+    <div class="arrow">
+      <a href="#up">
+        <img src = "static/images/arrow.png" height="40" width="40">
+      </a>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./static/js/script.js"></script>
+
+
+  </body>
+
+{% endblock content %}

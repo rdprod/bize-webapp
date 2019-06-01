@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+    <body>
+
+      <div class="block-logheader">
+        <a class="block-login" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+      </div>
+
+
+      <div id="wrapper">
+        <form class="form-container" action="" method="post">
+          <div id="register" class="authorization">
+            <h1>Регистрация</h1>
+            <a href="/login.html">Вход</a>
+          </div>
+          {% csrf_token %}
+          <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+          {{ form.as_p }}
+          <button type="submit">Зарегистрироваться</button>
+        </form>
+      </div>
+{% endblock %}

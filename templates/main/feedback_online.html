@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+	
+  <div class="block-logheader user-system">
+    <a class="block-login" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+  </div>
+
+  <div class="authorization">
+    <a href="{% url 'logout_user'%}">Выйти</a>
+  </div>
+
+  <div class = "comment_username">
+    <table>
+        <tr class='success'>
+          <td><img src = "../static/images/placeholder.svg" height="35" width="35">
+          <td>{{ request.user.username }}</td>
+        </tr>
+    </table>
+  </div>
+
+  <div>
+    <form action=""  method="post" class="post-form">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./static/js/script.js"></script>
+
+
+  </body>
+
+{% endblock content %}

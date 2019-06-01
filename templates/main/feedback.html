@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+	
+  <div class="block-logheader user-system">
+    <a class="block-login" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+  </div>
+
+  <div class="authorization">
+    <a href="/login.html">Войти</a>
+  </div>
+
+  <textarea readonly class ="commet_area" name="Comment" rows="30" cols="50">
+    Зона с текстом
+  </textarea>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./static/js/script.js"></script>
+
+
+  </body>
+
+{% endblock content %}

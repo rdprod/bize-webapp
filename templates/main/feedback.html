@@ -6,21 +6,66 @@
 	
   <div class="block-logheader user-system">
     <a class="block-login" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+
+    {% if request.user.is_authenticated %}
+      <div class="authorization">
+        <a href="{% url 'logout_user'%}">Выйти</a>
+      </div>
+    {% else %}
+      <div class="authorization">
+        <a href="/login.html">Войти</a>
+      </div>
+    {% endif %}
   </div>
 
-  <div class="authorization">
-    <a href="/login.html">Войти</a>
+  <div class = "comment-username">
+    <table>
+        <tr class='success'>
+          <td>{{ request.user.username }}</td>
+        </tr>
+    </table>
   </div>
 
-  <textarea readonly class ="commet_area" name="Comment" rows="30" cols="50">
-    Зона с текстом
-  </textarea>
+  <div class="main-comment-container">
 
+    {% if comments %}
+      <div class="comment-scroll-area">
+        {% for comment in comments %}
+        <div class="comment-area">
+          <img src = "/static/images/placeholder.png" height="70" width="70">
+          <div class="comment-text">
+            <h2>{{ comment.user }} </h2>
+            {{ comment.text }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="not-comment">
+        <p>Ни одного комментария пока нет. Вы можете стать первым!</p>
+      </div>
+    {% endif %}
+
+
+    {% if request.user.is_authenticated %}
+      <div class="comment-area">
+        <img src = "../static/images/placeholder.png" height="70" width="70">
+        {% for field in form %}
+          <form class="form-comment-container" action=""  method="post">
+            {% csrf_token %}
+            {{ field }}
+            <button type="submit">Отправить</button>
+          <form>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="./static/js/script.js"></script>
 
 
-  </body>
+</body>
 
 {% endblock content %}

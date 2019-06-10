@@ -3,7 +3,10 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.views.generic.base import View
 from django.views.generic.edit import FormView
-from .forms import RegisterForm 
+from .forms import RegisterForm, CommentForm
+from .models import Comment 
+from django.shortcuts import redirect
+
 
 # Опять же, спасибо django за готовую форму аутентификации.
 from django.contrib.auth.forms import AuthenticationForm
@@ -22,12 +25,6 @@ def home(request):
   return render(request, 'main/index.html')
 def aboutbz(request):
   return render(request, 'main/aboutbz.html')
-def login_old(request):
-  return render(request, 'main/login_old.html')
-def feedback(request):
-  return render(request, 'main/feedback.html')
-def feedback_online(request):
-  return render(request, 'main/feedback_online.html')
 def images(request):
   return render(request, 'static/images')
 
@@ -59,7 +56,7 @@ class LoginFormView(FormView):
   template_name = "main/login.html"
 
   # В случае успеха перенаправим на главную.
-  success_url = "/feedback_online.html/"
+  success_url = "/feedback.html/"
 
   def form_valid(self, form):
     # Получаем объект пользователя на основе введённых в форму данных.
@@ -82,5 +79,17 @@ class LogoutView(View):
 
 
 # КОММЕНТАРИИ
+def feedback(request):
+  if request.method == "POST":
+    form = CommentForm(request.POST)
+    if form.is_valid():
+      comment = form.save(commit=False)
+      comment.user = request.user
+      comment.save()
+      return redirect('feedback')
+  else: 
+    form = CommentForm()
 
-
+  co = Comment.objects.all()
+  context = {'form': form, 'comments': co}
+  return render(request, 'main/feedback.html', context)

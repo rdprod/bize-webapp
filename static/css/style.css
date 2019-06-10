@@ -205,14 +205,21 @@ a:active {
 
 .block-logheader {
   background: #ffca28;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.block-logheader-form {
+  background: #ffca28;
+}
 
 .block-login h1 {
   text-align: start;
   font-size: 50px;
   font-family: 'Amsterdam Superstar', 'Raleway', sans-serif, 'Molot', Century Gothic, Futura, sans-serif, 'Open Sans', 'Comic Sans MS', serif;
   color: #fdfcfb;
+  margin-left: 38.5px;
 }
 
 .authorization {
@@ -223,9 +230,9 @@ a:active {
 
 .authorization a {
   font-size: 40px;
-  color: #c7d3d6;
+  color: #fdfcfb;
   font-weight: 400;
-  padding: 10px;
+  margin-right: 38.5px;
 }
 
 .authorization a:hover {
@@ -250,6 +257,16 @@ a:active {
 
 .comment-username td {
   font-size: 30px;
+}
+
+.not-comment {
+  height:250px;
+}
+
+.not-comment p {
+  vertical-align: middle;
+  text-align: center;
+  line-height: 250px;
 }
 
 .main-comment-container {
@@ -294,7 +311,7 @@ a:active {
   margin-right: 10px;
 }
 
-textarea {
+.form-comment-container input[type=text],textarea {
   width: 100%; 
   height: 110px;
   padding: 0;

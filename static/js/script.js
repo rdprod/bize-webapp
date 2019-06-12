@@ -24,7 +24,7 @@ $(document).scroll( function() {
   }
 });
 
-//Функции обработки валидности формы
+/*//Функции обработки валидности формы
 
 $(document).ready(function() {
 
@@ -200,7 +200,7 @@ $('.label-tab.reset-label').click(function(event){
       $('#arrow').removeClass('fade-in');
     }, 450);
   }, 450);
-});
+});*/
 
 
 //Ajax обработка-комметариев
@@ -223,6 +223,7 @@ $('.form-comment-container').submit(function(e) {
         </div>
       `)  
       $('#id_text').val('');
+      $('.not-comment').hide();
     } 
   });
 

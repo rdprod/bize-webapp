@@ -33,8 +33,8 @@
       </div>
     {% endif %}
 
-    {% if comments %}
-      <div class="main-comment-area">
+    <div class="main-comment-area">
+      {% if comments %}
         {% for comment in comments %}
         <div class="comment-area">
           <img src="/static/images/placeholder.png">
@@ -43,14 +43,13 @@
             {{ comment.text }}
           </div>
         </div>
-        {% endfor %}
-      </div>
-    {% else %}
+      {% endfor %}
+      {% else %}
       <div class="not-comment">
         <p>Ни одного комментария пока нет. Вы можете стать первым!</p>
       </div>
-    {% endif %}
-    
+      {% endif %}
+    </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -6,7 +6,8 @@ from django.views.generic.edit import FormView
 from .forms import RegisterForm, CommentForm
 from .models import Comment 
 from django.shortcuts import redirect
-from django.utils import simplejson
+from django.http import HttpResponse
+import json
 
 
 # Опять же, спасибо django за готовую форму аутентификации.
@@ -57,7 +58,7 @@ class LoginFormView(FormView):
   template_name = "main/login.html"
 
   # В случае успеха перенаправим на главную.
-  success_url = "/feedback.html/"
+  success_url = "/feedback.html"
 
   def form_valid(self, form):
     # Получаем объект пользователя на основе введённых в форму данных.
@@ -75,7 +76,7 @@ class LogoutView(View):
     logout(request)
 
     # После чего, перенаправляем пользователя на главную страницу.
-    return HttpResponseRedirect("/feedback.html/")
+    return HttpResponseRedirect("/feedback.html")
 
 
 
@@ -87,7 +88,9 @@ def feedback(request):
       comment = form.save(commit=False)
       comment.user = request.user
       comment.save()
-      return redirect('feedback')
+      data = { 'text': comment.text, 'user': comment.user.username }
+      data = json.dumps(data)
+      return HttpResponse(data, content_type='application/json')
   else: 
     form = CommentForm()
 

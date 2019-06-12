@@ -1,3 +1,4 @@
+
 //Функция обработки scroll на основной странице
 
 $(document).ready( function() {
@@ -199,4 +200,30 @@ $('.label-tab.reset-label').click(function(event){
       $('#arrow').removeClass('fade-in');
     }, 450);
   }, 450);
+});
+
+
+//Ajax обработка-комметариев
+$('.form-comment-container').submit(function(e) {
+  
+  e.preventDefault();
+
+  $.ajax({
+    type: "POST",
+    url: "/feedback.html",
+    data: $('.form-comment-container').serialize(),
+    success: function(data) {
+      $('.main-comment-area').prepend(`
+        <div class="comment-area">
+          <img src="/static/images/placeholder.png">
+          <div class="comment-text">
+            <h2>${ data.user }</h2>
+            ${ data.text }
+          </div>
+        </div>
+      `)  
+      $('#id_text').val('');
+    } 
+  });
+
 });

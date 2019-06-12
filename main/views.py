@@ -29,6 +29,8 @@ def aboutbz(request):
   return render(request, 'main/aboutbz.html')
 def images(request):
   return render(request, 'static/images')
+def merch(request):
+  return render(request, 'main/merch.html')
 
 
 # РЕГИСТРАЦИЯ

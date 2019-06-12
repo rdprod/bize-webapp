@@ -11,5 +11,6 @@ urlpatterns = [
   url(r'^login.html', views.LoginFormView.as_view()),
   url(r'^logout',views.LogoutView.as_view(), name="logout_user"),
   url(r'^images/(?P<path>.*)$', views.images, name='images'),
+  url(r'^merch.html', views.merch, name='merch')
 ]
 

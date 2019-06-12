@@ -9,7 +9,7 @@
 
     {% if request.user.is_authenticated %}
       <div class="authorization">
-        <a href="{% url 'logout_user'%}">Выйти</a>
+        <a href="{% url 'logout_user'%}">{{ request.user.username }}</a>
       </div>
     {% else %}
       <div class="authorization">
@@ -18,21 +18,26 @@
     {% endif %}
   </div>
 
-  <div class = "comment-username">
-    <table>
-        <tr class='success'>
-          <td>{{ request.user.username }}</td>
-        </tr>
-    </table>
-  </div>
-
   <div class="main-comment-container">
+
+    {% if request.user.is_authenticated %}
+      <div class="comment-area">
+        <img src="../static/images/placeholder.png">
+        {% for field in form %}
+          <form class="form-comment-container" action=""  method="post">
+            {% csrf_token %}
+            {{ field }}
+            <button type="submit">Отправить</button>
+          <form>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     {% if comments %}
       <div class="comment-scroll-area">
         {% for comment in comments %}
         <div class="comment-area">
-          <img src = "/static/images/placeholder.png" height="70" width="70">
+          <img src="/static/images/placeholder.png">
           <div class="comment-text">
             <h2>{{ comment.user }} </h2>
             {{ comment.text }}
@@ -43,20 +48,6 @@
     {% else %}
       <div class="not-comment">
         <p>Ни одного комментария пока нет. Вы можете стать первым!</p>
-      </div>
-    {% endif %}
-
-
-    {% if request.user.is_authenticated %}
-      <div class="comment-area">
-        <img src = "../static/images/placeholder.png" height="70" width="70">
-        {% for field in form %}
-          <form class="form-comment-container" action=""  method="post">
-            {% csrf_token %}
-            {{ field }}
-            <button type="submit">Отправить</button>
-          <form>
-        {% endfor %}
       </div>
     {% endif %}
     

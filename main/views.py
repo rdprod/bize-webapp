@@ -6,6 +6,7 @@ from django.views.generic.edit import FormView
 from .forms import RegisterForm, CommentForm
 from .models import Comment 
 from django.shortcuts import redirect
+from django.utils import simplejson
 
 
 # Опять же, спасибо django за готовую форму аутентификации.
@@ -74,7 +75,7 @@ class LogoutView(View):
     logout(request)
 
     # После чего, перенаправляем пользователя на главную страницу.
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect("/feedback.html/")
 
 
 
@@ -90,6 +91,6 @@ def feedback(request):
   else: 
     form = CommentForm()
 
-  co = Comment.objects.all()
+  co = Comment.objects.all().order_by('id').reverse()
   context = {'form': form, 'comments': co}
   return render(request, 'main/feedback.html', context)

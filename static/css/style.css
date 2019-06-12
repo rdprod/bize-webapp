@@ -104,6 +104,29 @@ a:active {
   color:#4a515f;
 }
 
+.block-merch {
+  background: #4a515f;
+}
+
+.merch-products {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.merch-products button {
+  background: #4a515f;
+  opacity: .8;
+  height: 50px;
+  width: 150px;
+}
+
+.merch-products button:hover {
+  opacity: 1;
+}
+
 .js-change-opacity-3 span {
   position:relative;
   top:75px;
@@ -219,7 +242,21 @@ a:active {
   font-size: 50px;
   font-family: 'Amsterdam Superstar', 'Raleway', sans-serif, 'Molot', Century Gothic, Futura, sans-serif, 'Open Sans', 'Comic Sans MS', serif;
   color: #fdfcfb;
+}
+
+#feedback {
   margin-left: 38.5px;
+}
+
+.autorization-feedback a {
+  color: #fdfcfb;
+  font-size: 40px;
+  font-weight: 400;
+  margin-right: 38.5px;
+}
+
+.autorization-feedback a:hover {
+  color: #4a515f;
 }
 
 .authorization {
@@ -230,13 +267,13 @@ a:active {
 
 .authorization a {
   font-size: 40px;
-  color: #fdfcfb;
+  color: #4a515f;
   font-weight: 400;
-  margin-right: 38.5px;
+  opacity: .6;
 }
 
 .authorization a:hover {
-  color: #4a515f;
+  opacity: 1;
 }
 
 .authorization h1 {
@@ -275,6 +312,11 @@ a:active {
   flex-direction: column;
   align-items: center;
 }
+
+.comment-scroll-area {
+  overflow: hidden;
+}
+
 .comment-area {
   margin-bottom: 10px;
   width: 800px;
@@ -358,8 +400,6 @@ html, body { margin: 0; }
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
-/*#wrapper, label, button span { transition: all .5s cubic-bezier(.6,0,.4,1); }*/
 
 #arrow { transition: .8s cubic-bezier(0.6, 0.01, 0.99, 1.01); }
 

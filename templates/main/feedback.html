@@ -5,14 +5,14 @@
 <body>
 	
   <div class="block-logheader user-system">
-    <a class="block-login" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
+    <a class="block-login" id="feedback" href="{%url 'home'%}"><h1 id="up">BIZE</h1></a>
 
     {% if request.user.is_authenticated %}
-      <div class="authorization">
+      <div class="autorization-feedback">
         <a href="{% url 'logout_user'%}">{{ request.user.username }}</a>
       </div>
     {% else %}
-      <div class="authorization">
+      <div class="autorization-feedback">
         <a href="/login.html">Войти</a>
       </div>
     {% endif %}

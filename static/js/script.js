@@ -24,6 +24,11 @@ $(document).scroll( function() {
   }
 });
 
+//Кнопка в блоке мерч
+$('#merch-button').click( function(event) {
+  alert("Скоро в продаже!");
+});
+
 /*//Функции обработки валидности формы
 
 $(document).ready(function() {
